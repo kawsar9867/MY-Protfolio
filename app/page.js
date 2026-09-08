@@ -11,10 +11,10 @@ import SmoothScroll from "@/components/SmoothScroll";
 export default function Home() {
   return (
     <SmoothScroll>
-      <div className="min-h-screen flex flex-col justify-between relative bg-[#050608]">
+      <div className="min-h-screen flex flex-col justify-between relative bg-[#050608] overflow-x-hidden w-full max-w-full">
         <Navbar />
 
-        <main className="flex-grow flex flex-col items-center justify-center">
+        <main className="flex-grow flex flex-col items-center justify-center w-full max-w-full overflow-x-hidden">
           <Hero />
           <About />
           <Skills />

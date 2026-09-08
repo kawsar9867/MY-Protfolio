@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { MdContactPhone, MdOutlineArticle } from "react-icons/md";
+import Image from "next/image";
+import { MdContactPhone } from "react-icons/md";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Home,
@@ -238,9 +239,9 @@ export default function Navbar() {
   };
 
   return (
-    <div className="container mx-auto my-5 sticky top-5 z-50 px-4 sm:px-0">
+    <div className="container mx-auto my-3 sticky top-3 z-50 px-3 sm:px-0 max-w-full overflow-x-hidden">
       <motion.nav
-        className="p-2 rounded-2xl bg-[#0d0f17]/80 backdrop-blur-lg border border-neutral-800/80 shadow-lg shadow-black/40 relative overflow-hidden max-w-5xl mx-auto"
+        className="p-2 sm:p-2.5 rounded-2xl bg-[#090d16]/90 backdrop-blur-xl border border-slate-800/90 shadow-xl shadow-black/50 relative overflow-hidden max-w-5xl mx-auto"
         initial="initial"
         whileHover={!isMobile ? "hover" : undefined}
       >
@@ -250,43 +251,89 @@ export default function Navbar() {
             className="absolute -inset-2 rounded-3xl z-0 pointer-events-none"
             style={{
               background:
-                "radial-gradient(circle, rgba(59,130,246,0.1) 0%, rgba(147,51,234,0.1) 50%, rgba(239,68,68,0.1) 100%)",
+                "radial-gradient(circle, rgba(6,182,212,0.12) 0%, rgba(147,51,234,0.1) 50%, rgba(239,68,68,0.1) 100%)",
             }}
             variants={navGlowVariants}
           />
         )}
 
-        {/* Desktop menu */}
+        {/* Desktop Header */}
         {!isMobile && (
-          <ul className="hidden md:flex items-center justify-center gap-2 relative z-10">
-            {menuItems.map((item) => (
-              <DesktopMenuItem key={item.label} item={item} />
-            ))}
-          </ul>
+          <div className="flex items-center justify-between px-3 py-1 relative z-10">
+            {/* Brand Logo & Title */}
+            <a href="#home" className="flex items-center gap-3 group">
+              <div className="relative w-9 h-9 rounded-full p-[1.5px] bg-gradient-to-tr from-cyan-400 via-blue-500 to-violet-600 shadow-md shadow-cyan-500/20 group-hover:scale-105 transition-transform">
+                <div className="w-full h-full rounded-full bg-slate-950 overflow-hidden flex items-center justify-center">
+                  <Image
+                    src="/logo.png"
+                    alt="KA Logo"
+                    width={36}
+                    height={36}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-sm font-extrabold text-white tracking-tight leading-tight group-hover:text-cyan-300 transition-colors">
+                  Kawsar Ahamed
+                </span>
+                <span className="text-[9px] font-mono text-cyan-400 font-bold tracking-widest uppercase">
+                  MERN.DEV
+                </span>
+              </div>
+            </a>
+
+            {/* Desktop Navigation Links */}
+            <ul className="hidden md:flex items-center justify-center gap-1">
+              {menuItems.map((item) => (
+                <DesktopMenuItem key={item.label} item={item} />
+              ))}
+            </ul>
+          </div>
         )}
 
-        {/* Mobile menu */}
+        {/* Mobile Header (Matching image_15 / upload image) */}
         {isMobile && (
           <div className="relative z-10">
-            <div className="flex items-center justify-between p-2">
-              <span className="font-semibold text-white">
-                <span className="text-lg font-extrabold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-                  Kawsar.
-                </span>
-              </span>
+            <div className="flex items-center justify-between px-2 py-1">
+              {/* Left Side: Circular Logo + Name + MERN.DEV */}
+              <a href="#home" className="flex items-center gap-3">
+                <div className="relative w-10 h-10 rounded-full p-[1.5px] bg-gradient-to-tr from-cyan-400 via-blue-500 to-violet-600 shadow-md shadow-cyan-500/25">
+                  <div className="w-full h-full rounded-full bg-slate-950 overflow-hidden flex items-center justify-center">
+                    <Image
+                      src="/logo.png"
+                      alt="KA Logo"
+                      width={40}
+                      height={40}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-base font-extrabold text-white tracking-tight leading-tight">
+                    Kawsar Ahamed
+                  </span>
+                  <span className="text-[10px] font-mono text-cyan-400 font-bold tracking-widest uppercase">
+                    MERN.DEV
+                  </span>
+                </div>
+              </a>
+
+              {/* Right Side: Hamburger Button (NO Hire Me Button) */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 rounded-xl bg-neutral-800/80 text-neutral-300 hover:bg-neutral-700 transition-colors"
+                className="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-300 hover:text-white hover:border-cyan-500/40 transition-all cursor-pointer shadow-md"
                 aria-label="Toggle menu"
               >
                 {mobileMenuOpen ? (
-                  <X className="h-5 w-5" />
+                  <X className="h-5 w-5 text-cyan-400" />
                 ) : (
-                  <Menu className="h-5 w-5" />
+                  <Menu className="h-5 w-5 text-slate-200" />
                 )}
               </button>
             </div>
 
+            {/* Mobile Dropdown Drawer */}
             <AnimatePresence>
               {mobileMenuOpen && (
                 <motion.div
@@ -296,7 +343,7 @@ export default function Navbar() {
                   transition={{ duration: 0.3, ease: "easeInOut" }}
                   className="overflow-hidden"
                 >
-                  <ul className="flex flex-col gap-1 pt-2 border-t border-neutral-800">
+                  <ul className="flex flex-col gap-1 pt-3 pb-1 border-t border-slate-800/80 mt-2">
                     {menuItems.map((item) => (
                       <MobileMenuItem
                         key={item.label}
@@ -314,3 +361,4 @@ export default function Navbar() {
     </div>
   );
 }
+
