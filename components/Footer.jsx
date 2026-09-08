@@ -423,7 +423,7 @@ export default function Footer() {
                   <div className="w-7 h-7 rounded-lg bg-slate-900/90 border border-slate-800 flex items-center justify-center text-cyan-400 group-hover:border-cyan-500/50 group-hover:scale-110 transition-all shrink-0">
                     <MapPin className="w-3.5 h-3.5" />
                   </div>
-                  <span className="group-hover:text-slate-200 transition-colors">Kurigram, Bangladesh</span>
+                  <span className="group-hover:text-slate-200 transition-colors">Pirgachha, Rangpur</span>
                 </div>
                 <div className="flex items-center gap-3 group">
                   <div className="w-7 h-7 rounded-lg bg-slate-900/90 border border-slate-800 flex items-center justify-center text-purple-400 group-hover:border-purple-500/50 group-hover:scale-110 transition-all shrink-0">

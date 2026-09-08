@@ -301,15 +301,15 @@ export default function Education() {
             <ul className="space-y-2.5 text-sm text-slate-300 mb-6">
               <li className="flex items-center gap-2.5">
                 <Building2 className="w-4 h-4 text-purple-400/80 shrink-0" />
-                <span>Char Baruitari Alim Madrasah</span>
+                <span>Rajbari High School</span>
               </li>
               <li className="flex items-center gap-2.5">
                 <Laptop className="w-4 h-4 text-purple-400/80 shrink-0" />
-                <span>Dept: Computer Science / Science</span>
+                <span>Dept: Science</span>
               </li>
               <li className="flex items-center gap-2.5">
                 <MapPin className="w-4 h-4 text-purple-400/80 shrink-0" />
-                <span>Bhurungamari, Kurigram</span>
+                <span>Pirgachha, Rangpur</span>
               </li>
               <li className="flex items-center gap-2.5">
                 <Calendar className="w-4 h-4 text-purple-400/80 shrink-0" />
@@ -371,7 +371,7 @@ export default function Education() {
               <li className="flex items-center gap-2.5">
                 <Calendar className="w-4 h-4 text-amber-400/80 shrink-0" />
                 <span className="text-amber-200/90 font-medium">
-                  Batch 2024 - 2025
+                  Batch-13
                 </span>
               </li>
             </ul>

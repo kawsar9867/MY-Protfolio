@@ -401,7 +401,7 @@ export default function Contact() {
                   Location
                 </span>
                 <h4 className="text-base font-bold text-sky-400 mt-1">
-                  Kurigram, Bangladesh
+                  Pirgachha, Rangpur
                 </h4>
                 <p className="text-slate-400 text-xs sm:text-sm mt-1">
                   Available for remote work

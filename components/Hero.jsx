@@ -296,13 +296,17 @@ const Hero = () => {
               />
             </motion.div>
 
-            {/* Location */}
+            {/* Location Badge */}
             <motion.div
               variants={itemVariants}
-              className="flex items-center gap-2 text-slate-400 text-sm font-medium"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-slate-800 hover:border-rose-500/40 text-slate-300 text-xs font-mono font-medium shadow-md shadow-rose-500/5 backdrop-blur-md group cursor-default transition-all duration-300"
             >
-              <MapPin className="w-4 h-4 text-rose-500 fill-current animate-bounce" />
-              <span>{coderData.location}</span>
+              <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-rose-500/20 via-pink-500/20 to-purple-500/20 border border-rose-500/30 flex items-center justify-center text-rose-400 group-hover:scale-110 group-hover:border-rose-400 transition-all shadow-sm">
+                <MapPin className="w-3.5 h-3.5 text-rose-400 animate-pulse" />
+              </div>
+              <span className="text-slate-300 group-hover:text-white transition-colors">
+                Based in <strong className="text-white font-semibold">{coderData.location}</strong> 🇧🇩
+              </span>
             </motion.div>
 
             {/* Feature Tags */}
@@ -339,17 +343,22 @@ const Hero = () => {
               variants={itemVariants}
               className="flex flex-col sm:flex-row gap-4 mt-2 w-full sm:w-auto"
             >
-              <a href="#">
+              <motion.a
+                href="https://docs.google.com/document/d/1pCc-B2KJRzDttAv5y8W_hqWMOwn0CKLrzqvyiNIOC_s/export?format=pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Download Resume (PDF)"
+              >
                 <motion.button
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.96 }}
-                  className="group cursor-pointer flex items-center justify-center gap-2.5 px-7 py-3.5 bg-gradient-to-r from-cyan-500 via-blue-600 to-violet-600 hover:from-cyan-400 hover:to-violet-500 text-white rounded-xl font-semibold text-sm transition-all duration-300 shadow-xl shadow-cyan-500/25"
+                  className="group cursor-pointer flex items-center justify-center gap-2.5 px-7 py-3.5 bg-gradient-to-r from-cyan-500 via-blue-600 to-violet-600 hover:from-cyan-400 hover:to-violet-500 text-white rounded-xl font-semibold text-sm transition-all duration-300 shadow-xl shadow-cyan-500/25 w-full sm:w-auto"
                 >
                   <Download className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
                   <span>Download Resume</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </motion.button>
-              </a>
+              </motion.a>
               <motion.a
                 href="#contact"
                 whileHover={{ scale: 1.05, y: -2 }}
