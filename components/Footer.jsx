@@ -34,6 +34,21 @@ import {
   Radio,
 } from "lucide-react";
 
+const staticParticleData = [
+  { x: -450, y: 120, opacity: 0.35 },
+  { x: 380, y: 280, opacity: 0.25 },
+  { x: -180, y: 410, opacity: 0.45 },
+  { x: 520, y: 90, opacity: 0.2 },
+  { x: -320, y: 340, opacity: 0.3 },
+  { x: 210, y: 190, opacity: 0.5 },
+  { x: -580, y: 490, opacity: 0.22 },
+  { x: 110, y: 70, opacity: 0.4 },
+  { x: -80, y: 230, opacity: 0.35 },
+  { x: 440, y: 390, opacity: 0.28 },
+  { x: -260, y: 150, opacity: 0.48 },
+  { x: 310, y: 460, opacity: 0.32 },
+];
+
 // Floating Particle Tag Component with zero-g hover attraction
 function FloatingParticleTag({ text, icon: Icon, colorClass, delay = 0, initialY = 0 }) {
   const tagRef = useRef(null);
@@ -248,13 +263,13 @@ export default function Footer() {
 
       {/* Drifting Background Star/Particle Points */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {[...Array(12)].map((_, i) => (
+        {staticParticleData.map((pt, i) => (
           <motion.div
             key={i}
             initial={{
-              x: Math.random() * 1200 - 600,
-              y: Math.random() * 600,
-              opacity: 0.1 + Math.random() * 0.4,
+              x: pt.x,
+              y: pt.y,
+              opacity: pt.opacity,
             }}
             animate={{
               y: [0, -40, 0],
